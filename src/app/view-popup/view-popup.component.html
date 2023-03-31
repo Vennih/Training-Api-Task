@@ -1,26 +1,55 @@
-<div class="container bg-primary p-0 h-100">
-  <h1 mat-dialog-title class="text-white p-3 mb-0">Selected User Details</h1>
-  <div mat-dialog-content>
-    <ul class="m-0 py-3 px-5 d-flex flex-column justify-content-between">
-      <li><label for="userid" class="text-white">ID :</label>
-        <input id="userid" readonly class="text-end d-flex flex-row-reverse">
-      </li>
-      <li>
-        <label for="username" class="text-white">Name :</label>
-        <input id="username" readonly class="text-end d-flex flex-row-reverse">
-      </li>
-      <li>
-        <label for="useremail" class="text-white">Email:</label>
-        <input id="useremail" readonly class="text-end d-flex flex-row-reverse">
-      </li>
-      <li>
-        <label for="usergender" class="text-white">Gender :</label>
-        <input id="usergender" readonly class="text-end d-flex flex-row-reverse">
-      </li>
-      <li>
-        <label for="userstatus" class="text-white">Status: </label>
-        <input id="userstatus" readonly class="text-end d-flex flex-row-reverse">
-      </li>
-    </ul>
+<div class="h-100 px-0 m-0 row">
+  <div class="row h-100">
+    <div class="col-2 bg-secondary py-0">
+      <!-- <mat-sidenav mode="side" opened>
+              <mat-nav-list style="width:200px;">
+                  <a mat-list-item (click)="goToUserList()"><mat-icon>dashboard</mat-icon>User list</a>
+              </mat-nav-list>
+          </mat-sidenav> -->
+    </div>
+    <div class="col-10 p-3">
+      <div class="container row m-0 p-0">
+        <div class="col-10">
+          <h1 mat-dialog-title>Details of selected ID - {{cOselectedId}}</h1>
+        </div>
+        <div class="col-2 text-end p-0"><button class="btn btn-primary" (click)="goToUserList()">Back</button>
+        </div>
+      </div>
+      <div class="container border py-3 px-5 shadow">
+        <form class="row g-4">
+          <div class="col-md-6">
+            <div class="form-row">
+              <label for="userid" class="col-form-label">ID :</label>
+              <input type="text" ngModel name="name" class="form-control" id="userid" readonly>
+            </div>
+          </div>
+          <div class="col-md-6 gx-5">
+            <div class="form-row">
+              <label for="username" class="col-form-label">Name :</label>
+              <input type="text" ngModel name="name" class="form-control" id="username" readonly>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-row">
+              <label for="usergender" class="col-form-label">Gender :</label>
+              <input type="text" ngModel name="gender" class="form-control" id="usergender" readonly>
+            </div>
+          </div>
+
+          <div class="col-md-6 gx-5">
+            <div class="form-row">
+              <label for="useremail" class="col-form-label">Email:</label>
+              <input type="email" ngModel name="email" class="form-control" id="useremail" readonly>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-row">
+              <label for="userstatus" class="col-form-label">Status: </label>
+              <input type="text" ngModel name="status" class="form-control" id="userstatus" readonly>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

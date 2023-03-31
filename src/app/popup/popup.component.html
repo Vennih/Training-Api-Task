@@ -1,44 +1,60 @@
-<h1 mat-dialog-title>Updated the detais of user Id: {{cOselectedId}}</h1>
-<div mat-dialog-content class="border py-3 shadow">
-    <form class="row g-3" #userPost="ngForm" (ngSubmit)="upDateUser(cOselectedId, userPost.value)">
-        <div class="col-4 gx-3">
-            <label for="inputFirstName" class="form-label">First Name</label>
-            <input type="text" ngModel name="name" class="form-control" id="inputFirstName"
-                placeholder="First name" (keyup)="showFirstNameInFullName($event)" required>
+<div class="h-100 px-0 m-0 row">
+    <div class="row h-100">
+        <div class="col-2 bg-secondary py-0">
+            <mat-sidenav mode="side" opened>
+                <mat-nav-list style="width:200px;">
+                    <a mat-list-item (click)="goToUserList()"><mat-icon>dashboard</mat-icon>User list</a>
+                </mat-nav-list>
+            </mat-sidenav>
         </div>
-        <div class="col-4">
-            <label for="inputLastname" class="form-label">Last Name</label>
-            <input type="text" name="lastname" class="form-control" id="inputLastName"
-                placeholder="Last name" (keyup)="showLastNameInFullName($event)" required>
-        </div>
+        <div class="col-10 p-3">
+            <div class="container row m-0 p-0">
+                <div class="col-10">
+                    <h1 mat-dialog-title>Updated the detais of user Id: {{cOselectedId}}</h1>
+                </div>
+                <div class="col-2 text-end p-0"><button class="btn btn-primary" (click)="goToUserList()">Back</button>
+                </div>
+            </div>
+            <div class="container border py-3 px-5 shadow">
+                <form class="row g-4" #userPost="ngForm" (ngSubmit)="upDateUser(cOselectedId, userPost.value)">
+                    <!-- <div class="col-md-6 gx-5">
+                        <label for="inputFirstName4" class="form-label">First Name</label>
+                        <input type="text" ngModel name="name" class="form-control" id="inputFirstName"
+                            placeholder="First name" (keyup)="showFirstNameInFullName($event)" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputLastname4" class="form-label">Last Name</label>
+                        <input type="text" name="lastname" class="form-control" id="inputLastName"
+                            placeholder="Last name" (keyup)="showLastNameInFullName($event)" required>
+                    </div> -->
 
-        <div class="col-4 gx-3">
-            <label for="inputFullName" class="form-label">Full Name</label>
-            <input type="text" name="fullname" class="form-control" id="inputFullName" placeholder="Full name" required>
-            <div class="mt-2 text-info">A block of help text that breaks onto a new line and may extend
-                beyond one
-                line.</div>
-        </div>
-        <div class="col-4">
-            <label for="inputGender" class="form-label">Gender</label>
-            <input type="text" ngModel name="gender" class="form-control" id="inputGender"
-                placeholder="Gender" required>
-        </div>
+                    <div class="col-md-6 gx-5">
+                        <p class="d-inline">Existing Full Name : </p><label for="inputFullName4" class="form-label inputFullName bg-info bg-gradient"></label>
+                        <input type="text" ngModel name="name" class="form-control" id="inputFullName" placeholder="Update Full name" required>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <p class="d-inline">Existing Gender: </p><label for="inputGender4" class="form-label inputGender bg-info bg-gradient"></label>
+                        <input type="text" ngModel name="gender" class="form-control" id="inputGender"
+                            placeholder="Gender" required>
+                    </div>
 
-        <div class="col-4 gx-3">
-            <label for="inputEmail" class="form-label">Email</label>
-            <input type="email" ngModel name="email" class="form-control" id="inputEmail"
-                placeholder="Email" required>
-        </div>
-        <div class="col-4">
-            <label for="inputStatus" class="form-label">Status</label>
-            <input type="text" ngModel name="status" class="form-control" id="inputStatus"
-                placeholder="Status" required>
-        </div>
+                    <div class="col-md-6 gx-5">
+                        <p class="d-inline">Existing Email : </p><label for="inputEmail4" class="form-label inputEmail bg-info bg-gradient"></label>
+                        <input type="email" ngModel name="email" class="form-control" id="inputEmail"
+                            placeholder="Email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="d-inline">Existing Status : </p><label for="inputStatus4" class="form-label inputStatus bg-info bg-gradient"></label>
+                        <input type="text" ngModel name="status" class="form-control" id="inputStatus"
+                            placeholder="Status" required>
+                    </div>
 
-        <div mat-dialog-actions class="row text-end">
-            <button mat-button mat-dialog-close class="col-2">Close</button>
-            <button class="col-2" type="submit" mat-button mat-dialog-close cdkFocusInitial>Update Parameter</button>
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-primary">Update Parameter</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
+    </div>
 </div>

@@ -19,25 +19,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { UserlistfullComponent } from './userlistfull/userlistfull.component';
-import {  MatButtonModule} from '@angular/material/button';
-import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { PopupComponent } from './popup/popup.component';
-import { MatNavList } from '@angular/material/list';
-
-
-
+import { ViewPopupComponent } from './view-popup/view-popup.component';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 
 const routes: Routes = [
-  {path:'login', component:LoginComponent},
-  {path:'userlist', component:UserListComponent},
-  {path:'userlistfull', component:UserlistfullComponent},
-  {path:'editpage', component:AddUserComponent},
-  {path:'popup', component:PopupComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'userlist', component: UserListComponent },
+  { path: 'userlistfull', component: UserlistfullComponent },
+  { path: 'adduser', component: AddUserComponent },
+  { path: 'edituser', component: PopupComponent },
+  { path: 'viewuser', component: ViewPopupComponent }
 ];
 
 @NgModule({
@@ -50,13 +49,13 @@ const routes: Routes = [
     PopupComponent,
   ],
   imports: [
-    BrowserModule,MatCheckboxModule,MatSortModule,
-    AppRoutingModule,MatInputModule,MatSelectModule,
-    NgbModule,RouterModule.forRoot(routes),HttpClientModule,
-    DataTablesModule,MatTableModule, BrowserAnimationsModule,
-    MatSidenavModule,MatPaginatorModule,MatFormFieldModule,MatButtonModule,
-    FormsModule,MatIconModule,MatListModule,MatToolbarModule,
-    MatDialogModule,
+    BrowserModule, MatCheckboxModule, MatSortModule,
+    AppRoutingModule, MatInputModule, MatSelectModule,
+    NgbModule, RouterModule.forRoot(routes), HttpClientModule,
+    DataTablesModule, MatTableModule, BrowserAnimationsModule,
+    MatSidenavModule, MatPaginatorModule, MatFormFieldModule, MatButtonModule,
+    FormsModule, MatIconModule, MatListModule, MatToolbarModule,
+    MatDialogModule,TextFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

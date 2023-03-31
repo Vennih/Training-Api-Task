@@ -40,12 +40,6 @@ export class UserListComponent implements OnInit {
 
   }
 
-  // getId(cIselectedId :number){
-  //   this.cIselectedId = this.pduserId;
-  //   this.route.navigate(['popup'])
-  //   console.log(cIselectedId)
-  // }
-
   showUsers() {
     this.http.get("https://gorest.co.in/public/v2/users?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
       .subscribe((data: any) => {
@@ -59,12 +53,14 @@ export class UserListComponent implements OnInit {
 
   openDialog(id:number){
     this.commonService.sendData(id)
-    this.dialogRef.open(PopupComponent);
+    // this.dialogRef.open(PopupComponent);
+    this.route.navigate(['edituser'])
   }
 
   openUserData(id:number){
     this.commonService.sendData(id)
-    this.dialogRef.open(ViewPopupComponent);
+    // this.dialogRef.open(ViewPopupComponent);
+    this.route.navigate(['viewuser'])
   }
 
   // openPopUp(x: number){
@@ -77,7 +73,7 @@ export class UserListComponent implements OnInit {
     this.dataSource.filter = filvalue;
   }
   goToAddUser() {
-    this.route.navigate(["editpage"]);
+    this.route.navigate(["adduser"]);
   }
 
   goToUserList() {

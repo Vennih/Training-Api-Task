@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private route:Router){}
+  constructor(private route: Router) { }
   ngOnInit(): void {
-    this.route.navigate(['login'])
+    // this.route.navigate(['login'])
   }
   title = 'Task';
 

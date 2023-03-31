@@ -47,6 +47,8 @@ export class ViewPopupComponent implements OnInit {
         this.genderUnit.value = this.userData.gender;
         this.statusUnit.value = this.userData.status;
       })
-
+  }
+  goToUserList() {
+    this.route.navigate(["userlist"]);
   }
 }
