@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+table .mat-mdc-cell{
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    padding-left: 2px;
+    vertical-align:middle;
+}
+table .mat-mdc-header-cell{
+    vertical-align:middle;
+    /* margin: 0 auto; */
+}
+table .mat-sort-header-container{
+    margin:0 auto;
+}
+/* .mdc-icon{
+    width: 50% !important;
+    height: 50% !important;
+} */

@@ -1,0 +1,94 @@
+<div class="h-100 px-0 m-0 row">
+    <div class="row h-100">
+        <div class="col-2 bg-secondary py-0">
+            <mat-sidenav mode="side" opened>
+                <mat-nav-list style="width:200px;">
+                    <a mat-list-item (click)="goToUserList()"><mat-icon>dashboard</mat-icon>User list</a>
+                </mat-nav-list>
+            </mat-sidenav>
+        </div>
+        <div class="col-10 p-3">
+            <div class="container row m-0 p-0">
+                <div class="col-10">
+                    <h1>User List</h1>
+                </div>
+                <div class="col-2 text-end p-0"><button class="btn btn-primary" (click)="goToAddUser()">Add
+                        User</button>
+                </div>
+            </div>
+            <div class="mat-elevation-z8">
+                <div class="p-3 text-end container">
+                    <!-- <mat-form-field appearance="fill"> -->
+                        <mat-label>Search : </mat-label>
+                        <input matInput (keyup)="filterChange($event)">
+                    <!-- </mat-form-field> -->
+                </div>
+                <div class="container">
+                    <table mat-table  matSort [dataSource]="dataSource" class="table-hover table table-striped table-light">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="id" class="p-0">
+                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef> ID
+                            </th>
+                            <td class="text-dark" mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef> Name
+                            </th>
+                            <td class="text-dark" mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="email">
+                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
+                                Email </th>
+                            <td class="text-dark" mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="gender">
+                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
+                                Gender </th>
+                            <td class="text-dark" mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="status">
+                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
+                                Status </th>
+                            <td class="text-dark" mat-cell *matCellDef="let element"> {{element.status}} </td>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="option">
+                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
+                                Actions </th>
+                            <td class="text-dark" mat-cell *matCellDef="let element">
+                                <button mat-icon-button color="primary" (click)="openUserData(element.id)" aria-label="Example icon button with a home icon">
+                                    <mat-icon>remove_red_eye</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="openDialog(element.id)"
+                                    aria-label="Example icon button with a menu icon">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <!-- <app-popup [element.id]="element.id"></app-popup> -->
+                                <button mat-icon-button color="primary" (click)="deleteData(element.id)"
+                                    aria-label="Example icon button with a heart icon">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+
+                    <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"
+                        aria-label="Select page"></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
