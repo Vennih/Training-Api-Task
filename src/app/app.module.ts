@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PopupComponent } from './popup/popup.component';
 import { ViewPopupComponent } from './view-popup/view-popup.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
+import { AvatarComponent } from './avatar/avatar.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,8 @@ const routes: Routes = [
     AddUserComponent,
     UserlistfullComponent,
     PopupComponent,
+    ViewPopupComponent,
+    AvatarComponent,
   ],
   imports: [
     BrowserModule, MatCheckboxModule, MatSortModule,

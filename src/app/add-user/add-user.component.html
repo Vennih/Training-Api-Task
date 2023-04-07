@@ -19,18 +19,18 @@
                 <form class="row g-4" #userPost="ngForm" (ngSubmit)="AddUser(userPost.value)">
                     <div class="col-md-6 gx-5">
                         <label for="inputFirstName4" class="form-label">First Name</label>
-                        <input type="text" name="firstname" [(ngModel)]="model.firstname" class="form-control" id="inputFirstName4"
+                        <input type="text" name="firstname" ngModel class="form-control" id="inputFirstName4"
                             placeholder="First name" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputLastname4" class="form-label">Last Name</label>
-                        <input type="text" name="lastname" [(ngModel)]="model.lastname" class="form-control" id="inputLastName4"
+                        <input type="text" name="lastname" ngModel class="form-control" id="inputLastName4"
                             placeholder="Last name" required>
                     </div>
 
                     <div class="col-md-6 gx-5">
                         <label for="inputFullName4" class="form-label">Full Name</label>
-                        <input type="text" [(ngModel)]="model.name" name="name" class="form-control" id="inputFullName4" placeholder="Full name" value="{{fullname}}" required>
+                        <input type="text" ngModel name="name" class="form-control" id="inputFullName4" placeholder="Full name" value="{{fullname}}" required>
                         <div class="mt-2 text-info">A block of help text that breaks onto a new line and may extend
                             beyond one
                             line.</div>

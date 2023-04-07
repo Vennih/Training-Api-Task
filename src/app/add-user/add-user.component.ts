@@ -9,31 +9,29 @@ import { Router } from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
-  firstnameInput: string = "";
-  lastnameInput: string = "";
+  firstnameInput: any;
+  lastnameInput: any;
   regex: any = /[^\s@]+@[^\s@]+\.[^\s@]+/;
 
   constructor(private http: HttpClient, private route: Router) { }
 
   ngOnInit(): void {
 
+    this.firstnameInput = document.querySelector("#inputFirstName4")
+    this.lastnameInput = document.querySelector("#inputLastName4")
+
   }
 
   get fullname(): string {
-    const name = this.model.firstname + ' ' + this.model.lastname;
+    const name = this.firstnameInput.value + ' ' + this.lastnameInput.value;
     return name
   }
 
-  model = {
-    firstname: '',
-    lastname: '',
-    name: ''
-  }
 
 
   AddUser(data: any) {
-    console.log(data);
-    data.name = this.model.firstname + " " + this.model.lastname;
+    // console.log(data);
+    data.name = this.firstnameInput.value + " " + this.lastnameInput.value;
     if (data.name != "" && data.email != "" && data.gender != "" && data.status != "") {
       if (data.gender == 'male' || data.gender == 'female') {
         if (data.status == 'active' || data.status == 'inactive') {
@@ -44,7 +42,7 @@ export class AddUserComponent implements OnInit {
                 alert("User Details Added Successfully")
                 this.route.navigate(['userlist'])
               })
-            console.log(data)
+            // console.log(data)
           } else { alert("Enter a valid email") }
         } else { alert("Enter active or inactive only in Status") }
       } else { alert("Enter male or female only in Gender") }

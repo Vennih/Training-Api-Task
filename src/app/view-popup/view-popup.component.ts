@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
+import { AvatarComponent } from '../avatar/avatar.component';
 
 @Component({
   selector: 'app-view-popup',
@@ -21,6 +22,8 @@ export class ViewPopupComponent implements OnInit {
   statusUnit: any;
   idUnit: any;
 
+  gender: string = ""
+
   constructor(private http: HttpClient, private route: Router, private commonService: CommonService) { }
 
   ngOnInit(): void {
@@ -34,6 +37,8 @@ export class ViewPopupComponent implements OnInit {
     this.statusUnit = document.querySelector("#userstatus")
 
     this.getSelectedUser()
+    
+    this.gender = this.userData.gender;
 
   }
 

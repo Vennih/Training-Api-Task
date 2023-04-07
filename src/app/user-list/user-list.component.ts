@@ -25,13 +25,10 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  // userId!: number;
-  // isLoadingResults: any;
-  // isRateLimitReached: any;
-  pduserId:number | undefined;
-  cIselectedId:number | undefined;
+  pduserId: number | undefined;
+  cIselectedId: number | undefined;
 
-  constructor(private http: HttpClient, private route: Router, private dialogRef: MatDialog, private commonService:CommonService) {
+  constructor(private http: HttpClient, private route: Router, private dialogRef: MatDialog, private commonService: CommonService) {
     this.userData = [];
   }
 
@@ -51,22 +48,16 @@ export class UserListComponent implements OnInit {
       })
   }
 
-  openDialog(id:number){
+  openDialog(id: number) {
     this.commonService.sendData(id)
-    // this.dialogRef.open(PopupComponent);
     this.route.navigate(['edituser'])
   }
 
-  openUserData(id:number){
+  openUserData(id: number) {
     this.commonService.sendData(id)
-    // this.dialogRef.open(ViewPopupComponent);
     this.route.navigate(['viewuser'])
   }
 
-  // openPopUp(x: number){
-  //   this.commonService.sendData(x)
-  //   this.route.navigate(['popup'])
-  // }
 
   filterChange(event: Event) {
     const filvalue = (event.target as HTMLInputElement).value;
@@ -80,23 +71,17 @@ export class UserListComponent implements OnInit {
     this.route.navigate(["userlist"]);
   }
 
+  logout() {
+    this.route.navigate(["login"]);
+  }
+
   deleteData(id: number) {
     console.log(id)
     if (confirm("Are you sure to delete?")) {
       this.http.delete("https://gorest.co.in/public/v2/users/" + id + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
         .subscribe(data => this.userData = data)
-    } 
+    }
     window.location.reload();
     alert("User Detail Deleted Succesfully")
   }
-
-  // editUserData(id:number){
-  //   this.route.navigate(['editpage'])
-  //   this.http.put("https://gorest.co.in/public/v2/users/" + id +"?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525",data)
-  //   .subscribe(x=>{
-  //     this.userData = data;
-  //         alert("User Detail Deleted Succesfully")
-  //   })
-  // }
-
 }

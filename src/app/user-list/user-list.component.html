@@ -9,11 +9,14 @@
         </div>
         <div class="col-10 p-3">
             <div class="container row m-0 p-0">
-                <div class="col-10">
-                    <h1>User List</h1>
+                <div class="col-10 my-3">
+                    <h1 class="mb-0">User List</h1>
                 </div>
-                <div class="col-2 text-end p-0"><button class="btn btn-primary" (click)="goToAddUser()">Add
-                        User</button>
+                <div class="col-1 text-end p-0 px-2 my-3">
+                    <button class="btn btn-primary p-2" (click)="logout()">Log out</button>
+                </div>
+                <div class="col-1 text-end p-0 my-3">
+                    <button class="btn btn-primary p-2" (click)="goToAddUser()">Add User</button>
                 </div>
             </div>
             <div class="mat-elevation-z8">
@@ -27,7 +30,7 @@
                     <table mat-table matSort [dataSource]="dataSource"
                         class="table-hover table table-striped table-light">
 
-                        <!-- Position Column -->
+                        <!-- ID Column -->
                         <ng-container matColumnDef="id">
                             <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef> ID
                             </th>
@@ -41,30 +44,30 @@
                             <td class="text-dark" mat-cell *matCellDef="let element"> {{element.name}} </td>
                         </ng-container>
 
-                        <!-- Weight Column -->
+                        <!-- Email Column -->
                         <ng-container matColumnDef="email">
                             <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
                                 Email </th>
                             <td class="text-dark" mat-cell *matCellDef="let element"> {{element.email}} </td>
                         </ng-container>
 
-                        <!-- Symbol Column -->
+                        <!-- Gender Column -->
                         <ng-container matColumnDef="gender">
                             <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
                                 Gender </th>
                             <td class="text-dark" mat-cell *matCellDef="let element"> {{element.gender}} </td>
                         </ng-container>
 
-                        <!-- Symbol Column -->
+                        <!-- Status Column -->
                         <ng-container matColumnDef="status">
                             <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
                                 Status </th>
                             <td class="text-dark" mat-cell *matCellDef="let element"> {{element.status}} </td>
                         </ng-container>
 
-                        <!-- Symbol Column -->
+                        <!-- Action Column -->
                         <ng-container matColumnDef="option">
-                            <th class="bg-secondary" mat-header-cell mat-sort-header="" *matHeaderCellDef>
+                            <th class="bg-secondary" mat-header-cell *matHeaderCellDef>
                                 Actions </th>
                             <td class="text-dark" mat-cell *matCellDef="let element">
                                 <button mat-icon-button color="primary" (click)="openUserData(element.id)"
