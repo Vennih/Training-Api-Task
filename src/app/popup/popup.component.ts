@@ -11,20 +11,21 @@ import { CommonService } from '../common.service';
 export class PopupComponent implements OnInit {
 
   userData: any;
-  
+
   cOselectedId: any;
 
   nameUnit: any;
   emailUnit: any;
   genderUnit: any;
   statusUnit: any;
-  regex:any = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+  regex: any = /[^\s@]+@[^\s@]+\.[^\s@]+/;
   firstnameUnit: any;
   lastnameUnit: any;
 
   constructor(private http: HttpClient, private route: Router, private commonService: CommonService) { }
 
   ngOnInit(): void {
+
 
     this.commonService.commonMessage.subscribe(m => this.cOselectedId = m)
 
@@ -39,6 +40,7 @@ export class PopupComponent implements OnInit {
 
   }
 
+  // get the details of the user by selected Id 
   getSelectedUser() {
     this.http.get("https://gorest.co.in/public/v2/users/" + this.cOselectedId + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
       .subscribe((data: any) => {
@@ -57,9 +59,8 @@ export class PopupComponent implements OnInit {
       })
   }
 
+  // validation to update the user details in the correct formate
   upDateUser(id: number, data: any) {
-    console.log(id)
-    console.log(data)
     data.name = this.nameUnit.value;
     data.email = this.emailUnit.value;
     data.gender = this.genderUnit.value;
@@ -74,13 +75,13 @@ export class PopupComponent implements OnInit {
                 alert("User Details changed Successfully")
                 this.route.navigate(['userlist'])
               })
-            console.log(data)
           } else { alert("Enter a valid email") }
         } else { alert("Enter active or inactive only in Status") }
       } else { alert("Enter male or female only in Gender") }
     } else { alert("Please fill all the user details") }
   }
 
+  // Redirecting to userlist component on click to Userlist/back button in the navbar
   goToUserList() {
     this.route.navigate(["userlist"]);
   }

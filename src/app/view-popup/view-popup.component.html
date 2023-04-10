@@ -17,6 +17,7 @@
       </div>
       <div class="container border py-3 px-5 shadow">
         <form class="row g-4">
+
           <div class="col-md-6">
             <div class="form-row">
               <label for="userid" class="col-form-label">ID :</label>
@@ -41,17 +42,17 @@
 
           <div class="col-md-6">
             <div class="form-row">
-              <label for="usergender" class="col-form-label">Gender :</label>
-              <input type="text" name="gender" class="form-control" id="usergender" readonly>
-            </div>
-          </div>
-
-          <div class="col-md-6 gx-5">
-            <div class="form-row">
               <label for="useremail" class="col-form-label">Email:</label>
               <input type="email" name="email" class="form-control" id="useremail" readonly>
             </div>
           </div>
+          <div class="col-md-6 gx-5">
+            <div class="form-row">
+              <label for="usergender" class="col-form-label">Gender :</label>
+              <input type="text" name="gender" class="form-control" id="usergender" readonly>
+            </div>
+          </div>          
+
           <div class="col-md-6">
             <div class="form-row">
               <label for="userstatus" class="col-form-label">Status: </label>
@@ -60,9 +61,10 @@
           </div>
           <div class="col-md-6 gx-5">
             <div class="form-row">
-              <app-avatar [gender]="userData.gender"></app-avatar>
+              <app-avatar [gender]="genderUnit.value"></app-avatar>
             </div>
           </div>
+
         </form>
       </div>
     </div>
