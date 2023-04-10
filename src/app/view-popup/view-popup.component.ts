@@ -23,6 +23,8 @@ export class ViewPopupComponent implements OnInit {
   idUnit: any;
 
   gender: string = ""
+  firstnameUnit: any;
+  lastnameUnit: any;
 
   constructor(private http: HttpClient, private route: Router, private commonService: CommonService) { }
 
@@ -30,7 +32,10 @@ export class ViewPopupComponent implements OnInit {
 
     this.commonService.commonMessage.subscribe(m => this.cOselectedId = m)
 
+    
     this.idUnit = document.querySelector("#userid")
+    this.firstnameUnit = document.querySelector("#userfirstname")
+    this.lastnameUnit = document.querySelector("#userlastname")
     this.nameUnit = document.querySelector("#username")
     this.emailUnit = document.querySelector("#useremail")
     this.genderUnit = document.querySelector("#usergender")
@@ -38,7 +43,7 @@ export class ViewPopupComponent implements OnInit {
 
     this.getSelectedUser()
     
-    this.gender = this.userData.gender;
+    // this.gender = this.userData.gender;
 
   }
 
@@ -46,7 +51,15 @@ export class ViewPopupComponent implements OnInit {
     this.http.get("https://gorest.co.in/public/v2/users/" + this.cOselectedId + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
       .subscribe((data: any) => {
         this.userData = data;
+
+        console.log(this.userData.name)
+        const splitname = this.userData.name.split(" ")
+        const lastname = splitname.pop()
+        const firstname = splitname.join(" ")
+
         this.idUnit.value = this.userData.id
+        this.firstnameUnit.value = firstname
+        this.lastnameUnit.value = lastname
         this.nameUnit.value = this.userData.name;
         this.emailUnit.value = this.userData.email;
         this.genderUnit.value = this.userData.gender;

@@ -11,13 +11,11 @@ table .mat-mdc-cell{
     vertical-align:middle;
 }
 table .mat-mdc-header-cell{
-    vertical-align:middle;
-    /* margin: 0 auto; */
+    vertical-align:middle;    
+    text-align: center; 
+    font-size: medium;   
 }
-table .mat-sort-header-container{
-    margin:0 auto;
+table .mat-focus-indicator{
+    display: inline-flex;
+    align-items: center;
 }
-/* .mdc-icon{
-    width: 50% !important;
-    height: 50% !important;
-} */

@@ -11,10 +11,7 @@ import { CommonService } from '../common.service';
 export class PopupComponent implements OnInit {
 
   userData: any;
-  fullName: any;
-
-  fullNameFromFirstName: any = "";
-  fullNameFromLastName: any = "";
+  
   cOselectedId: any;
 
   nameUnit: any;
@@ -22,17 +19,21 @@ export class PopupComponent implements OnInit {
   genderUnit: any;
   statusUnit: any;
   regex:any = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+  firstnameUnit: any;
+  lastnameUnit: any;
 
   constructor(private http: HttpClient, private route: Router, private commonService: CommonService) { }
 
   ngOnInit(): void {
-    // this.fullName = document.querySelector("#inputFullName");
+
     this.commonService.commonMessage.subscribe(m => this.cOselectedId = m)
 
-    this.nameUnit = document.querySelector(".inputFullName")
-    this.emailUnit = document.querySelector(".inputEmail")
-    this.genderUnit = document.querySelector(".inputGender")
-    this.statusUnit = document.querySelector(".inputStatus")
+    this.firstnameUnit = document.querySelector("#userFirstname")
+    this.lastnameUnit = document.querySelector("#userLastname")
+    this.nameUnit = document.querySelector("#userFullname")
+    this.emailUnit = document.querySelector("#userEmail")
+    this.genderUnit = document.querySelector("#userGender")
+    this.statusUnit = document.querySelector("#userStatus")
 
     this.getSelectedUser()
 
@@ -42,16 +43,27 @@ export class PopupComponent implements OnInit {
     this.http.get("https://gorest.co.in/public/v2/users/" + this.cOselectedId + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
       .subscribe((data: any) => {
         this.userData = data;
-        this.nameUnit.innerText = this.userData.name;
-        this.emailUnit.innerText = this.userData.email;
-        this.genderUnit.innerText = this.userData.gender;
-        this.statusUnit.innerText = this.userData.status;
+
+        const splitname = this.userData.name.split(" ")
+        const lastname = splitname.pop()
+        const firstname = splitname.join(" ")
+
+        this.firstnameUnit.value = firstname;
+        this.lastnameUnit.value = lastname;
+        this.nameUnit.value = this.userData.name;
+        this.emailUnit.value = this.userData.email;
+        this.genderUnit.value = this.userData.gender;
+        this.statusUnit.value = this.userData.status;
       })
   }
 
   upDateUser(id: number, data: any) {
     console.log(id)
     console.log(data)
+    data.name = this.nameUnit.value;
+    data.email = this.emailUnit.value;
+    data.gender = this.genderUnit.value;
+    data.status = this.statusUnit.value;
     if (data.name != "" && data.email != "" && data.gender != "" && data.status != "") {
       if (data.gender == 'male' || data.gender == 'female') {
         if (data.status == 'active' || data.status == 'inactive') {

@@ -2,8 +2,8 @@
     <div class="row h-100">
         <div class="col-2 bg-secondary py-0">
             <mat-sidenav mode="side" opened>
-                <mat-nav-list style="width:200px;">
-                    <a mat-list-item (click)="goToUserList()"><mat-icon>dashboard</mat-icon>User list</a>
+                <mat-nav-list style="width:200px;" class="">
+                    <a mat-list-item (click)="goToUserList()" ><mat-icon class="position-absolute top-50 end-0 translate-middle-y">dashboard</mat-icon>User list</a>
                 </mat-nav-list>
             </mat-sidenav>
         </div>
@@ -26,7 +26,7 @@
                     <input matInput (keyup)="filterChange($event)">
                     <!-- </mat-form-field> -->
                 </div>
-                <div class="container">
+                <div class="container pb-3">
                     <table mat-table matSort [dataSource]="dataSource"
                         class="table-hover table table-striped table-light">
 
@@ -74,12 +74,11 @@
                                     aria-label="Example icon button with a home icon">
                                     <mat-icon>remove_red_eye</mat-icon>
                                 </button>
-                                <button mat-icon-button color="primary" (click)="openDialog(element.id)"
+                                <button mat-icon-button color="primary" (click)="editUser(element.id)"
                                     aria-label="Example icon button with a menu icon">
                                     <mat-icon>edit</mat-icon>
                                 </button>
-                                <!-- <app-popup [element.id]="element.id"></app-popup> -->
-                                <button mat-icon-button color="primary" (click)="deleteData(element.id)"
+                                <button mat-icon-button color="primary" (click)="deleteUser(element.id)"
                                     aria-label="Example icon button with a heart icon">
                                     <mat-icon>delete</mat-icon>
                                 </button>
@@ -91,7 +90,7 @@
                     </table>
 
                     <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"
-                        aria-label="Select page"></mat-paginator>
+                        aria-label="Select page" class="bg-secondary"></mat-paginator>
                 </div>
             </div>
         </div>

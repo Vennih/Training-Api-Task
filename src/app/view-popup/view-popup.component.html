@@ -1,11 +1,11 @@
 <div class="h-100 px-0 m-0 row">
   <div class="row h-100">
-    <div class="col-2 bg-secondary py-0">
-      <!-- <mat-sidenav mode="side" opened>
+      <div class="col-2 bg-secondary py-0">
+          <mat-sidenav mode="side" opened>
               <mat-nav-list style="width:200px;">
-                  <a mat-list-item (click)="goToUserList()"><mat-icon>dashboard</mat-icon>User list</a>
+                  <a mat-list-item (click)="goToUserList()"><mat-icon class="position-absolute top-50 end-0 translate-middle-y">dashboard</mat-icon>User list</a>
               </mat-nav-list>
-          </mat-sidenav> -->
+          </mat-sidenav>
     </div>
     <div class="col-10 p-3">
       <div class="container row m-0 p-0">
@@ -26,26 +26,36 @@
           <div class="col-md-6 gx-5">
             <div class="form-row">
               <label for="username" class="col-form-label">Name :</label>
-              <input type="text" ngModel name="name" class="form-control" id="username" readonly>
+              <input type="text" name="name" class="form-control" id="username" readonly disabled>
             </div>
           </div>
+
+          <div class="col-md-6">
+            <label for="userfirstname" class="form-label">First Name</label>
+            <input type="text" name="name" class="form-control" id="userfirstname" readonly>
+          </div>
+          <div class="col-md-6 gx-5">
+            <label for="userlastname" class="form-label">Last Name</label>
+            <input type="text" name="lastname" class="form-control" id="userlastname" readonly>
+          </div>
+
           <div class="col-md-6">
             <div class="form-row">
               <label for="usergender" class="col-form-label">Gender :</label>
-              <input type="text" ngModel name="gender" class="form-control" id="usergender" readonly>
+              <input type="text" name="gender" class="form-control" id="usergender" readonly>
             </div>
           </div>
 
           <div class="col-md-6 gx-5">
             <div class="form-row">
               <label for="useremail" class="col-form-label">Email:</label>
-              <input type="email" ngModel name="email" class="form-control" id="useremail" readonly>
+              <input type="email" name="email" class="form-control" id="useremail" readonly>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-row">
               <label for="userstatus" class="col-form-label">Status: </label>
-              <input type="text" ngModel name="status" class="form-control" id="userstatus" readonly>
+              <input type="text" name="status" class="form-control" id="userstatus" readonly>
             </div>
           </div>
           <div class="col-md-6 gx-5">

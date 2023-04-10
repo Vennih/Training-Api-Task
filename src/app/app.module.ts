@@ -18,7 +18,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { UserlistfullComponent } from './userlistfull/userlistfull.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,7 +33,6 @@ import { AvatarComponent } from './avatar/avatar.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'userlist', component: UserListComponent },
-  { path: 'userlistfull', component: UserlistfullComponent },
   { path: 'adduser', component: AddUserComponent },
   { path: 'edituser', component: PopupComponent },
   { path: 'viewuser', component: ViewPopupComponent }
@@ -46,7 +44,6 @@ const routes: Routes = [
     LoginComponent,
     UserListComponent,
     AddUserComponent,
-    UserlistfullComponent,
     PopupComponent,
     ViewPopupComponent,
     AvatarComponent,
