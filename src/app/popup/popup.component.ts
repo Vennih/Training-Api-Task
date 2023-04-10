@@ -40,6 +40,12 @@ export class PopupComponent implements OnInit {
 
   }
 
+  // To display the fullname input by concate the firstname and lastname
+  get fullname(): string {
+    const name = this.firstnameUnit.value + ' ' + this.lastnameUnit.value;
+    return name
+  }
+
   // get the details of the user by selected Id 
   getSelectedUser() {
     this.http.get("https://gorest.co.in/public/v2/users/" + this.cOselectedId + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
