@@ -28,7 +28,13 @@ import { PopupComponent } from './popup/popup.component';
 import { ViewPopupComponent } from './view-popup/view-popup.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { AvatarComponent } from './avatar/avatar.component';
+// import { Handsontable } from 'handsontable';
+import { HotTableModule } from '@handsontable/angular';
+import { registerAllModules } from 'handsontable/registry';
 
+
+
+registerAllModules();
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -55,7 +61,7 @@ const routes: Routes = [
     DataTablesModule, MatTableModule, BrowserAnimationsModule,
     MatSidenavModule, MatPaginatorModule, MatFormFieldModule, MatButtonModule,
     FormsModule, MatIconModule, MatListModule, MatToolbarModule,
-    MatDialogModule,TextFieldModule,
+    MatDialogModule,TextFieldModule,HotTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

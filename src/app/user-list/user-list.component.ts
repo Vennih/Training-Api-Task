@@ -86,9 +86,10 @@ export class UserListComponent implements OnInit {
       this.http.delete("https://gorest.co.in/public/v2/users/" + id + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
         .subscribe(data => this.userData = data)
       alert("User Detail Deleted Succesfully")
+      this.ngOnInit();
     } else {
       alert("User Details not deleted")
     }
-    window.location.reload();
+    // window.location.reload();
   }
 }
