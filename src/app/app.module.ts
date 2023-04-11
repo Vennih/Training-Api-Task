@@ -28,9 +28,9 @@ import { PopupComponent } from './popup/popup.component';
 import { ViewPopupComponent } from './view-popup/view-popup.component';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { AvatarComponent } from './avatar/avatar.component';
-// import { Handsontable } from 'handsontable';
 import { HotTableModule } from '@handsontable/angular';
 import { registerAllModules } from 'handsontable/registry';
+import { HandsontableComponent } from './handsontable/handsontable.component';
 
 
 
@@ -41,7 +41,8 @@ const routes: Routes = [
   { path: 'userlist', component: UserListComponent },
   { path: 'adduser', component: AddUserComponent },
   { path: 'edituser', component: PopupComponent },
-  { path: 'viewuser', component: ViewPopupComponent }
+  { path: 'viewuser', component: ViewPopupComponent },
+  { path: 'handsontable', component: HandsontableComponent},
 ];
 
 @NgModule({
@@ -53,6 +54,7 @@ const routes: Routes = [
     PopupComponent,
     ViewPopupComponent,
     AvatarComponent,
+    HandsontableComponent,
   ],
   imports: [
     BrowserModule, MatCheckboxModule, MatSortModule,
