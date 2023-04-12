@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import Handsontable from 'handsontable';
 import { HttpClient } from '@angular/common/http';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-handsontable',
@@ -49,7 +48,7 @@ export class HandsontableComponent implements OnInit, AfterViewInit {
         { type: 'numeric', data: 0 },
         { type: 'text', data: 1 },
         { type: 'text', data: 2 },
-        { type: 'dropdown', source: ['Male', 'Female'], allowInvalid: false, data: 3 },
+        { type: 'dropdown', source: ['male', 'female'], allowInvalid: false, data: 3 },
         { type: 'dropdown', source: ['active', 'inactive'], allowInvalid: false, data: 4 }
       ],
       // columns: function(column: number) {
@@ -69,7 +68,6 @@ export class HandsontableComponent implements OnInit, AfterViewInit {
     
       //   return columnMeta;
       // },
-      rowHeaders: true,
       width: '100%',
       height: 400,
       customBorders: true,
