@@ -45,7 +45,7 @@ export class HandsontableComponent implements OnInit, AfterViewInit {
       data: this.objecttoarray,
       colHeaders: ['Id', 'Name', 'Email', 'Gender', 'Status'],
       columns: [
-        { type: 'numeric', data: 0 },
+        { type: 'numeric', data: 0, readOnly : true },
         { type: 'text', data: 1 },
         { type: 'text', data: 2 },
         { type: 'dropdown', source: ['male', 'female'], allowInvalid: false, data: 3 },
