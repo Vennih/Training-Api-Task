@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HandsontableComponent } from './handsontable.component';
+import { UserlistfullComponent } from './userlistfull.component';
 
-describe('HandsontableComponent', () => {
-  let component: HandsontableComponent;
-  let fixture: ComponentFixture<HandsontableComponent>;
+describe('UserlistfullComponent', () => {
+  let component: UserlistfullComponent;
+  let fixture: ComponentFixture<UserlistfullComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HandsontableComponent ]
+      declarations: [ UserlistfullComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HandsontableComponent);
+    fixture = TestBed.createComponent(UserlistfullComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

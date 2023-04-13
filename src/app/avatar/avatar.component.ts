@@ -13,7 +13,6 @@ export class AvatarComponent implements OnChanges {
 
   ngOnChanges(): void {
     
-    // validation to display the symbol image of gender 
     if (this.gender == 'male'){
       this.image = "/assets/male.png"
     }else{
