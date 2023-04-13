@@ -12,19 +12,18 @@ import { AvatarComponent } from '../avatar/avatar.component';
 export class ViewPopupComponent implements OnInit {
 
   userData: any;
-  fullName: any;
 
   cOselectedId: any;
+  gender: any;
 
+  firstnameUnit: any;
+  lastnameUnit: any;
   nameUnit: any;
   emailUnit: any;
   genderUnit: any;
   statusUnit: any;
   idUnit: any;
 
-  gender: string = ""
-  firstnameUnit: any;
-  lastnameUnit: any;
 
   constructor(private http: HttpClient, private route: Router, private commonService: CommonService) { }
 
@@ -42,17 +41,15 @@ export class ViewPopupComponent implements OnInit {
     this.statusUnit = document.querySelector("#userstatus")
 
     this.getSelectedUser()
-    
-    // this.gender = this.userData.gender;
 
   }
 
+  // function to get the data of user by selected id and display the details
   getSelectedUser() {
     this.http.get("https://gorest.co.in/public/v2/users/" + this.cOselectedId + "?access-token=7b319b308eb19b622798bbd47e959e1b301a43e48f3e6ccdad84a9746ba35525")
       .subscribe((data: any) => {
         this.userData = data;
 
-        console.log(this.userData.name)
         const splitname = this.userData.name.split(" ")
         const lastname = splitname.pop()
         const firstname = splitname.join(" ")
@@ -66,6 +63,8 @@ export class ViewPopupComponent implements OnInit {
         this.statusUnit.value = this.userData.status;
       })
   }
+
+  // Redirecting to userlist component on click to Userlist/back button in the navbar
   goToUserList() {
     this.route.navigate(["userlist"]);
   }

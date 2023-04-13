@@ -22,15 +22,15 @@ export class AddUserComponent implements OnInit {
 
   }
 
+  // To display the fullname input by concate the firstname and lastname
   get fullname(): string {
     const name = this.firstnameInput.value + ' ' + this.lastnameInput.value;
     return name
   }
 
 
-
+  // validation to add the user details in correct formate
   AddUser(data: any) {
-    // console.log(data);
     data.name = this.firstnameInput.value + " " + this.lastnameInput.value;
     if (data.name != "" && data.email != "" && data.gender != "" && data.status != "") {
       if (data.gender == 'male' || data.gender == 'female') {
@@ -42,13 +42,13 @@ export class AddUserComponent implements OnInit {
                 alert("User Details Added Successfully")
                 this.route.navigate(['userlist'])
               })
-            // console.log(data)
           } else { alert("Enter a valid email") }
         } else { alert("Enter active or inactive only in Status") }
       } else { alert("Enter male or female only in Gender") }
     } else { alert("Please fill all the user details") }
   }
 
+  // Redirecting to userlist component on click to Userlist/back button in the navbar
   goToUserList() {
     this.route.navigate(["userlist"]);
   }

@@ -17,6 +17,7 @@
       </div>
       <div class="container border py-3 px-5 shadow">
         <form class="row g-4">
+
           <div class="col-md-6">
             <div class="form-row">
               <label for="userid" class="col-form-label">ID :</label>
@@ -31,38 +32,39 @@
           </div>
 
           <div class="col-md-6">
-            <label for="userfirstname" class="form-label">First Name</label>
+            <label for="userfirstname" class="form-label">First Name :</label>
             <input type="text" name="name" class="form-control" id="userfirstname" readonly>
           </div>
           <div class="col-md-6 gx-5">
-            <label for="userlastname" class="form-label">Last Name</label>
+            <label for="userlastname" class="form-label">Last Name :</label>
             <input type="text" name="lastname" class="form-control" id="userlastname" readonly>
           </div>
 
           <div class="col-md-6">
             <div class="form-row">
-              <label for="usergender" class="col-form-label">Gender :</label>
-              <input type="text" name="gender" class="form-control" id="usergender" readonly>
-            </div>
-          </div>
-
-          <div class="col-md-6 gx-5">
-            <div class="form-row">
-              <label for="useremail" class="col-form-label">Email:</label>
+              <label for="useremail" class="col-form-label">Email :</label>
               <input type="email" name="email" class="form-control" id="useremail" readonly>
             </div>
           </div>
+          <div class="col-md-6 gx-5">
+            <div class="form-row">
+              <label for="usergender" class="col-form-label">Gender :</label>
+              <input type="text" name="gender" class="form-control" id="usergender" readonly>
+            </div>
+          </div>          
+
           <div class="col-md-6">
             <div class="form-row">
-              <label for="userstatus" class="col-form-label">Status: </label>
+              <label for="userstatus" class="col-form-label">Status : </label>
               <input type="text" name="status" class="form-control" id="userstatus" readonly>
             </div>
           </div>
           <div class="col-md-6 gx-5">
             <div class="form-row">
-              <app-avatar [gender]="userData.gender"></app-avatar>
+              <app-avatar [gender]="genderUnit.value"></app-avatar>
             </div>
           </div>
+
         </form>
       </div>
     </div>
