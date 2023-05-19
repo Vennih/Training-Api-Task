@@ -6,6 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonService } from '../common.service';
+import  jsPDF from 'jspdf';
+import  html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver'
 
 
 @Component({
@@ -91,5 +94,21 @@ export class UserListComponent implements OnInit {
       alert("User Details not deleted")
     }
     // window.location.reload();
+  }
+
+  exportToPdf() {
+    console.log('ni');    
+    const data = document.getElementById('print');
+  if (data) {
+    html2canvas(data).then(canvas => {
+      const imgWidth = 208;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, imgHeight);
+      const filename = 'Table.pdf';
+      pdf.save(filename);
+    });
+  }
   }
 }
